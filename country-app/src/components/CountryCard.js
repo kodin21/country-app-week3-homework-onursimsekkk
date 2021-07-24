@@ -23,18 +23,19 @@ return (
       return (
         
           <Col className="col-lg-4 col-md-6 col-sm-12">
-          <Card className="shadow mx-auto mb-5" style={{ width: '18rem' }} key={country.name} >
-            <Card.Img variant="top" src={country.flag} alt={country.name + " flag"} />
-            <Card.Body>
-              <Card.Title>{country.name}</Card.Title>
-              <Card.Text>
-                {"Capital: " + country.capital}
-              </Card.Text>
-              <Button variant="outline-primary">
-                Show details
-              </Button>
-            </Card.Body>
-          </Card></Col>
+            <Card className="shadow mx-auto mb-5" style={{ width: '18rem' }} key={country.name} >
+              <Card.Img variant="top" src={country.flag} alt={country.name + " flag"} />
+              <Card.Body>
+                <Card.Title>{country.name}</Card.Title>
+                <Card.Text>
+                  {"Capital: " + country.capital}
+                </Card.Text>
+                <Button variant="outline-primary">
+                  Show details
+                </Button>
+              </Card.Body>
+            </Card>
+          </Col> 
         
       )
     })}
