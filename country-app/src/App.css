@@ -1,9 +1,4 @@
 .App {
-  /* display: flex; */
   text-align: center;
 }
 
-.country-card {
-  border: 1px solid black;
-  /* width: 120px; */
-}
