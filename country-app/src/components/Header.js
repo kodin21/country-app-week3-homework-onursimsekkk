@@ -9,7 +9,7 @@ const Header = () => {
         Country App
       </h1>
       <div>
-        <Selection />
+        <Selection className="mt-5" />
       </div>
     </div>
   )
