@@ -30,7 +30,7 @@ return (
                 <Card.Text>
                   <span className="text-decoration-underline">Capital</span>{": " + country.capital}
                 </Card.Text>
-                <Button variant="outline-primary" className="shadow">
+                <Button variant="outline-primary" className="shadow letter-space">
                   Show details
                 </Button>
               </Card.Body>
