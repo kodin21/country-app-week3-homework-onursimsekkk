@@ -18,19 +18,19 @@ useEffect(() => {
 
 return (
   <Container className="mt-4">
-    <Row className="justify-content-md-center mb-3">
+    <Row className="justify-content-center mb-3">
     {countries.map(country => {
       return (
         
           <Col className="col-lg-4 col-md-6 col-sm-12">
-            <Card className="shadow mx-auto mb-5" style={{ width: '18rem' }} key={country.name} >
+            <Card className="shadow mx-auto mb-5" style={{ width: '18rem', height:'24rem'}} key={country.name} >
               <Card.Img variant="top" src={country.flag} alt={country.name + " flag"} />
-              <Card.Body>
+              <Card.Body className="row d-flex align-items-center">
                 <Card.Title>{country.name}</Card.Title>
                 <Card.Text>
-                  {"Capital: " + country.capital}
+                  <span className="text-decoration-underline">Capital</span>{": " + country.capital}
                 </Card.Text>
-                <Button variant="outline-primary">
+                <Button variant="outline-primary" className="shadow">
                   Show details
                 </Button>
               </Card.Body>
