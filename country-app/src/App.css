@@ -2,3 +2,7 @@
   text-align: center;
 }
 
+/* Global  */
+.letter-space {
+  letter-spacing: 1px;
+}
