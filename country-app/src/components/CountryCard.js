@@ -8,7 +8,7 @@ import Col from 'react-bootstrap/Col';
 
 function CountryCard() {
   const [countries, setCountries] = useState([]);  
-  
+  const [details, setDetails] = useState(false);
 // Send a GET request with Axios
 useEffect(() => {
   axios.get('https://restcountries.eu/rest/v2/all')
@@ -27,11 +27,23 @@ return (
               <Card.Img variant="top" src={country.flag} alt={country.name + " flag"} />
               <Card.Body className="row d-flex align-items-center">
                 <Card.Title>{country.name}</Card.Title>
-                <Card.Text>
-                  <span className="text-decoration-underline">Capital</span>{": " + country.capital}
-                </Card.Text>
-                <Button variant="outline-primary" className="shadow letter-space">
-                  Show details
+                {details ? (
+                  <>
+                  <Card.Text>
+                    Population{": " + country.population}
+                  </Card.Text>
+                  <Card.Text>
+                    Most Spoken Language{": " + country.languages[0].name}
+                  </Card.Text>
+                  </>
+                ) : (
+                  <Card.Text>
+                    <span className="text-decoration-underline">Capital</span>{": " + country.capital}
+                  </Card.Text>
+                )}
+                
+                <Button onClick={() => setDetails(!details)} variant="outline-primary" className="shadow letter-space">
+                  {details ? "Close" : "Show details"}
                 </Button>
               </Card.Body>
             </Card>
