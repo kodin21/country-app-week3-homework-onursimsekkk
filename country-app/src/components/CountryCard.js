@@ -22,8 +22,8 @@ return (
     {countries.map(country => {
       return (
         
-          <Col className="col-lg-4 col-md-6 col-sm-12">
-            <Card className="shadow mx-auto mb-5" style={{ width: '18rem', height:'24rem'}} key={country.name} >
+          <Col className="col-lg-4 col-md-6 col-sm-12" key={country.name}>
+            <Card className="shadow mx-auto mb-5" style={{ width: '18rem', height:'24rem'}}>
               <Card.Img variant="top" src={country.flag} alt={country.name + " flag"} />
               <Card.Body className="row d-flex align-items-center">
                 <Card.Title>{country.name}</Card.Title>
