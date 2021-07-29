@@ -15,7 +15,7 @@ const [appPage, setAppPage] = useState(true);
 
   return (
     <div className="App">
-      <Header title="Country App" />
+      <Header title={appPage ? "Country App" : "Most Spoken Languages"} />
       <Button onClick={() => setAppPage(true)} variant={appPage ? "primary" : "outline-primary"} className="btn-lg">Countries </Button>
       <Button onClick={() => setAppPage(false)} variant={appPage ? "outline-primary" : "primary"} className="btn-lg">Statistics </Button>
       {appPage ? (
