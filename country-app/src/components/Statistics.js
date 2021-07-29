@@ -44,9 +44,9 @@ return (
       return (
         <Col className="col-12 mb-4" key={lang.name}>
           <Card border="primary" style={{ width: '36rem' }}>
-            <Card.Header>{lang[0]}</Card.Header>
+            <Card.Header><b>{lang[0]}</b></Card.Header>
             <Card.Body>
-              <Card.Title>{lang[1]}</Card.Title>
+              <Card.Title>{lang[1]} countries using this language.</Card.Title>
             </Card.Body>
           </Card>
         </Col>
