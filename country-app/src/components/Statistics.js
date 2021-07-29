@@ -3,35 +3,50 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Row from 'react-bootstrap/Row'
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 
 
 const Statistics = () => {
-  const [countries, setCountries] = useState([]);
+  
+const [countries, setCountries] = useState([]);
 // Send a GET request with Axios
 useEffect(() => {
   axios.get('https://restcountries.eu/rest/v2/all')
   .then(response => setCountries(response.data));
 }, []);
 
-const statistic = countries.map
+
+const myLog = [];
+  for (let i = 0; i < countries.length; i += 1) {
+    for (let j = 0; j < countries[i].languages.length; j += 1) {
+      myLog.push(countries[i].languages[j].name);
+    }
+  }
+
+const counts = {};
+  myLog.forEach((x) => {
+    counts[x] = (counts[x] || 0) + 1;
+  });
+  
+const sortableLanguage = [];
+  Object.keys(counts).forEach((language) =>
+    sortableLanguage.push([language, counts[language]])
+  );
+
+  sortableLanguage.sort((a, b) => b[1] - a[1]);
+  
 
 return (
   <Container className="mt-4">
-    <Row className="justify-content-center mb-3">
-    {countries.map(country => {
+    <Row className="mb-3">
+    {sortableLanguage.map(lang => {
       return (
-        <Col className="col-12 mb-4" key={country.name}>
-          <Card border="info" style={{ width: '32rem' }}>
-            <Card.Header>{country.name}</Card.Header>
+        <Col className="col-12 mb-4" key={lang.name}>
+          <Card border="primary" style={{ width: '36rem' }}>
+            <Card.Header>{lang[0]}</Card.Header>
             <Card.Body>
-              <Card.Title>Info Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up the bulk
-                of the card's content.
-              </Card.Text>
+              <Card.Title>{lang[1]}</Card.Title>
             </Card.Body>
           </Card>
         </Col>
